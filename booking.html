@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Book your Sri Lankan adventure - Secure your dream destination with flexible packages">
+    <title>Book Your Trip - Explore Sri Lanka</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/booking.css">
+</head>
+
+<body>
+    <!-- Back Button -->
+    <button class="back-button" id="backButton" aria-label="Go back">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+        <span>Back</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 5L35 12.5V27.5L20 35L5 27.5V12.5L20 5Z" fill="currentColor" opacity="0.2" />
+                        <path d="M20 5L35 12.5V27.5L20 35L5 27.5V12.5L20 5Z" stroke="currentColor" stroke-width="2" />
+                        <circle cx="20" cy="20" r="6" fill="currentColor" />
+                    </svg>
+                    <span class="logo-text">Explore<span class="logo-accent">Lanka</span></span>
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="destinations.html" class="nav-link">Destinations</a>
+                <a href="trip-planner.html" class="nav-link">Plan Trip</a>
+                <a href="#" class="nav-link active">Book Now</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn-icon" id="userBtn" aria-label="User account">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="2" />
+                        <path d="M3 18C3 14.134 6.134 11 10 11C13.866 11 17 14.134 17 18" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="booking-main">
+        <div class="booking-container">
+            <!-- Booking Header -->
+            <div class="booking-header">
+                <div class="booking-header-content">
+                    <h1 class="booking-title">Complete Your Booking</h1>
+                    <p class="booking-subtitle">Just a few steps to secure your Sri Lankan adventure</p>
+                </div>
+
+                <!-- Progress Indicator -->
+                <div class="booking-progress">
+                    <div class="progress-step active" data-step="1">
+                        <div class="progress-circle">1</div>
+                        <span class="progress-label">Details</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="2">
+                        <div class="progress-circle">2</div>
+                        <span class="progress-label">Package</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="3">
+                        <div class="progress-circle">3</div>
+                        <span class="progress-label">Travelers</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="4">
+                        <div class="progress-circle">4</div>
+                        <span class="progress-label">Payment</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-content">
+                <!-- Left: Booking Form -->
+                <div class="booking-form-container">
+                    <!-- Step 1: Trip Details -->
+                    <div class="booking-step active" id="step1">
+                        <h2 class="step-title">Trip Details</h2>
+                        <p class="step-description">When would you like to visit?</p>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="checkIn">Check-in Date</label>
+                                <input type="date" id="checkIn" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkOut">Check-out Date</label>
+                                <input type="date" id="checkOut" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Number of Travelers</label>
+                            <div class="travelers-selector">
+                                <div class="traveler-type">
+                                    <div>
+                                        <span class="traveler-label">Adults</span>
+                                        <span class="traveler-sublabel">Age 18+</span>
+                                    </div>
+                                    <div class="counter">
+                                        <button type="button" class="counter-btn" data-action="decrease"
+                                            data-type="adults">-</button>
+                                        <span class="counter-value" id="adultsCount">2</span>
+                                        <button type="button" class="counter-btn" data-action="increase"
+                                            data-type="adults">+</button>
+                                    </div>
+                                </div>
+                                <div class="traveler-type">
+                                    <div>
+                                        <span class="traveler-label">Children</span>
+                                        <span class="traveler-sublabel">Age 0-17</span>
+                                    </div>
+                                    <div class="counter">
+                                        <button type="button" class="counter-btn" data-action="decrease"
+                                            data-type="children">-</button>
+                                        <span class="counter-value" id="childrenCount">0</span>
+                                        <button type="button" class="counter-btn" data-action="increase"
+                                            data-type="children">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn-next" onclick="nextStep()">Continue to Package Selection</button>
+                    </div>
+
+                    <!-- Step 2: Package Selection -->
+                    <div class="booking-step" id="step2">
+                        <h2 class="step-title">Choose Your Package</h2>
+                        <p class="step-description">Select the experience that suits you best</p>
+
+                        <div class="packages-grid">
+                            <div class="package-card" data-package="standard">
+                                <div class="package-badge">Best Value</div>
+                                <h3 class="package-name">Standard</h3>
+                                <div class="package-price">
+                                    <span class="price-amount">$150</span>
+                                    <span class="price-period">per person</span>
+                                </div>
+                                <ul class="package-features">
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Entrance fees included
+                                    </li>
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Basic transportation
+                                    </li>
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Group tour guide
+                                    </li>
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Travel insurance
+                                    </li>
+                                </ul>
+                                <button class="btn-select-package">Select Standard</button>
+                            </div>
+
+                            <div class="package-card featured" data-package="premium">
+                                <div class="package-badge">Most Popular</div>
+                                <h3 class="package-name">Premium</h3>
+                                <div class="package-price">
+                                    <span class="price-amount">$250</span>
+                                    <span class="price-period">per person</span>
+                                </div>
+                                <ul class="package-features">
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        All Standard features
+                                    </li>
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Private transportation
+                                    </li>
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Personal guide
+                                    </li>
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Meals included
+                                    </li>
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Photography service
+                                    </li>
+                                </ul>
+                                <button class="btn-select-package">Select Premium</button>
+                            </div>
+
+                            <div class="package-card" data-package="luxury">
+                                <div class="package-badge">Ultimate Experience</div>
+                                <h3 class="package-name">Luxury</h3>
+                                <div class="package-price">
+                                    <span class="price-amount">$450</span>
+                                    <span class="price-period">per person</span>
+                                </div>
+                                <ul class="package-features">
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        All Premium features
+                                    </li>
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Luxury vehicle
+                                    </li>
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Expert historian guide
+                                    </li>
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Fine dining experiences
+                                    </li>
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        VIP access & skip lines
+                                    </li>
+                                    <li>
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 10L8 13L15 6" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Professional photo album
+                                    </li>
+                                </ul>
+                                <button class="btn-select-package">Select Luxury</button>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn-back" onclick="prevStep()">Back</button>
+                            <button class="btn-next" onclick="nextStep()">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Traveler Information -->
+                    <div class="booking-step" id="step3">
+                        <h2 class="step-title">Traveler Information</h2>
+                        <p class="step-description">Please provide details for all travelers</p>
+
+                        <div class="form-group">
+                            <label for="fullName">Full Name (Lead Traveler)</label>
+                            <input type="text" id="fullName" class="form-input" placeholder="John Doe" required>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-input" placeholder="john@example.com"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-input" placeholder="+1 234 567 8900" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nationality">Nationality</label>
+                            <select id="nationality" class="form-input" required>
+                                <option value="">Select your country</option>
+                                <option value="US">United States</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="CA">Canada</option>
+                                <option value="AU">Australia</option>
+                                <option value="IN">India</option>
+                                <option value="SG">Singapore</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="specialRequests">Special Requests (Optional)</label>
+                            <textarea id="specialRequests" class="form-input" rows="4"
+                                placeholder="Dietary restrictions, accessibility needs, etc."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn-back" onclick="prevStep()">Back</button>
+                            <button class="btn-next" onclick="nextStep()">Continue to Payment</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Payment -->
+                    <div class="booking-step" id="step4">
+                        <h2 class="step-title">Payment Information</h2>
+                        <p class="step-description">Secure payment processing</p>
+
+                        <div class="payment-methods">
+                            <button class="payment-method active" data-method="card">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <rect x="2" y="6" width="20" height="14" rx="2" stroke="currentColor"
+                                        stroke-width="2" />
+                                    <path d="M2 10H22" stroke="currentColor" stroke-width="2" />
+                                </svg>
+                                Credit/Debit Card
+                            </button>
+                            <button class="payment-method" data-method="paypal">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
+                                        stroke="currentColor" stroke-width="2" />
+                                </svg>
+                                PayPal
+                            </button>
+                        </div>
+
+                        <div class="payment-form" id="cardPayment">
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" class="form-input" placeholder="1234 5678 9012 3456"
+                                    maxlength="19" required>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="expiryDate">Expiry Date</label>
+                                    <input type="text" id="expiryDate" class="form-input" placeholder="MM/YY"
+                                        maxlength="5" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" class="form-input" placeholder="123" maxlength="3"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cardName">Cardholder Name</label>
+                                <input type="text" id="cardName" class="form-input" placeholder="John Doe" required>
+                            </div>
+                        </div>
+
+                        <div class="payment-security">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 2L3 5V9C3 13.5 6 17 10 18C14 17 17 13.5 17 9V5L10 2Z" stroke="currentColor"
+                                    stroke-width="2" />
+                                <path d="M7 10L9 12L13 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <span>Your payment information is encrypted and secure</span>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn-back" onclick="prevStep()">Back</button>
+                            <button class="btn-confirm" onclick="confirmBooking()">Confirm & Pay</button>
+                        </div>
+                    </div>
+
+                    <!-- Confirmation Step -->
+                    <div class="booking-step" id="confirmation">
+                        <div class="confirmation-content">
+                            <div class="confirmation-icon">
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                    <circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="4" />
+                                    <path d="M25 40L35 50L55 30" stroke="currentColor" stroke-width="4"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <h2 class="confirmation-title">Booking Confirmed!</h2>
+                            <p class="confirmation-message">Your Sri Lankan adventure is secured. We've sent a
+                                confirmation email with all the details.</p>
+
+                            <div class="confirmation-details">
+                                <div class="confirmation-item">
+                                    <span class="confirmation-label">Booking ID:</span>
+                                    <span class="confirmation-value" id="bookingId">SL-2026-001</span>
+                                </div>
+                                <div class="confirmation-item">
+                                    <span class="confirmation-label">Destination:</span>
+                                    <span class="confirmation-value" id="confirmDestination">Sigiriya</span>
+                                </div>
+                                <div class="confirmation-item">
+                                    <span class="confirmation-label">Dates:</span>
+                                    <span class="confirmation-value" id="confirmDates">Mar 15 - Mar 17, 2026</span>
+                                </div>
+                                <div class="confirmation-item">
+                                    <span class="confirmation-label">Total Amount:</span>
+                                    <span class="confirmation-value" id="confirmTotal">$500</span>
+                                </div>
+                            </div>
+
+                            <div class="confirmation-actions">
+                                <a href="index.html" class="btn-primary">Back to Home</a>
+                                <button class="btn-secondary" onclick="window.print()">Print Confirmation</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Booking Summary -->
+                <div class="booking-summary">
+                    <div class="summary-card">
+                        <h3 class="summary-title">Booking Summary</h3>
+
+                        <div class="summary-destination">
+                            <img src="assets/images/destinations/sigiriya_new.png" alt="Destination"
+                                class="summary-image" id="summaryImage">
+                            <div class="summary-destination-info">
+                                <h4 id="summaryDestination">Sigiriya</h4>
+                                <p id="summaryLocation">Cultural Triangle, Sri Lanka</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span class="summary-label">Check-in</span>
+                                <span class="summary-value" id="summaryCheckIn">-</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Check-out</span>
+                                <span class="summary-value" id="summaryCheckOut">-</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Duration</span>
+                                <span class="summary-value" id="summaryDuration">-</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Travelers</span>
+                                <span class="summary-value" id="summaryTravelers">2 Adults</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Package</span>
+                                <span class="summary-value" id="summaryPackage">-</span>
+                            </div>
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-pricing">
+                            <div class="summary-row">
+                                <span class="summary-label">Base Price</span>
+                                <span class="summary-value" id="summaryBasePrice">$0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Service Fee</span>
+                                <span class="summary-value" id="summaryServiceFee">$0</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span class="summary-label">Total</span>
+                                <span class="summary-value" id="summaryTotal">$0</span>
+                            </div>
+                        </div>
+
+                        <div class="summary-note">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="2" />
+                                <path d="M8 4V8M8 11V12" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                            <span>Free cancellation up to 48 hours before check-in</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/booking.js"></script>
+</body>
+
+</html>

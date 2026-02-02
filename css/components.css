@@ -756,3 +756,62 @@
     background: rgba(0, 0, 0, 0.8);
     transform: translateY(-2px);
 }
+
+/* ============================================
+   MOBILE OPTIMIZATIONS
+   ============================================ */
+
+@media (max-width: 640px) {
+
+    /* Reduce card image height */
+    .card-image {
+        height: 200px !important;
+    }
+
+    .destination-card.featured .card-image {
+        height: 240px !important;
+    }
+
+    /* Reduce card padding */
+    .card-content {
+        padding: var(--space-4);
+    }
+
+    /* Reduce title size */
+    .card-title {
+        font-size: var(--text-xl);
+        margin-bottom: var(--space-1);
+    }
+
+    /* Clamp description to 2 lines */
+    .card-description {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: var(--space-4);
+        line-height: 1.5;
+    }
+
+    /* Reduce spacing in card header */
+    .card-header {
+        margin-bottom: var(--space-3);
+    }
+
+    /* Reduce footer padding */
+    .card-footer {
+        padding-top: var(--space-3);
+    }
+
+    /* Make tags smaller */
+    .tag {
+        font-size: 10px;
+        padding: 2px 8px;
+    }
+
+    /* Adjust rating badge */
+    .card-rating {
+        padding: var(--space-1) var(--space-2);
+        font-size: var(--text-xs);
+    }
+}

@@ -341,7 +341,8 @@ class ScrollAnimations {
         // Observe cards
         document.querySelectorAll('.destination-card, .experience-card, .testimonial-card').forEach((card, index) => {
             card.classList.add('fade-in');
-            card.style.transitionDelay = `${index * 0.1}s`;
+            // Reduced delay with modulo to avoid long waits on lists
+            card.style.transitionDelay = `${(index % 3) * 0.05}s`;
             observer.observe(card);
         });
     }

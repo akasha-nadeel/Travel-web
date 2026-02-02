@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Plan your perfect Sri Lanka adventure - Create custom itineraries, save destinations, and get personalized recommendations.">
+    <meta name="keywords" content="Sri Lanka trip planner, itinerary builder, travel planning, Sri Lanka vacation">
+    <title>Trip Planner - Plan Your Sri Lanka Adventure</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/trip-planner.css">
+
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <svg class="loader-logo" width="80" height="80" viewBox="0 0 40 40" fill="none">
+            <path d="M20 5L25 15L35 17L27 25L29 35L20 30L11 35L13 25L5 17L15 15L20 5Z" fill="currentColor" />
+        </svg>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">
+                <svg class="logo-icon" width="32" height="32" viewBox="0 0 40 40" fill="none">
+                    <path d="M20 5L25 15L35 17L27 25L29 35L20 30L11 35L13 25L5 17L15 15L20 5Z" fill="currentColor" />
+                </svg>
+                <span class="logo-text">Explore<span class="logo-accent">Lanka</span></span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="destinations.html" class="nav-link">Destinations</a>
+                <a href="index.html#experiences" class="nav-link">Experiences</a>
+                <a href="trip-planner.html" class="nav-link active">Plan Trip</a>
+                <a href="index.html#about" class="nav-link">About</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="#" class="wishlist-link" id="wishlistLink">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 21L3 12C1 10 1 7 3 5C5 3 8 3 10 5L12 7L14 5C16 3 19 3 21 5C23 7 23 10 21 12L12 21Z"
+                            stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    <span class="wishlist-count" id="wishlistCount">0</span>
+                </a>
+                <a href="#" class="btn-primary">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <button class="btn-back" onclick="window.history.back()" aria-label="Go back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Back
+    </button>
+
+    <!-- Trip Planner Header -->
+    <section class="planner-header">
+        <div class="container">
+            <div class="planner-header-content">
+                <span class="section-badge">Trip Planner</span>
+                <h1 class="planner-title">Plan Your Perfect Sri Lanka Adventure</h1>
+                <p class="planner-subtitle">Create a custom itinerary, save your favorite destinations, and get
+                    personalized recommendations for your dream vacation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Planner Interface -->
+    <main class="planner-main">
+        <div class="container">
+            <div class="planner-grid">
+                <!-- Left Sidebar - Trip Details -->
+                <aside class="planner-sidebar">
+                    <div class="trip-summary-card">
+                        <h2 class="card-title">Your Trip</h2>
+
+                        <!-- Trip Name -->
+                        <div class="form-group">
+                            <label for="tripName">Trip Name</label>
+                            <input type="text" id="tripName" class="form-input" placeholder="My Sri Lanka Adventure"
+                                value="My Sri Lanka Adventure">
+                        </div>
+
+                        <!-- Date Range -->
+                        <div class="form-group">
+                            <label for="tripDates">Travel Dates</label>
+                            <input type="text" id="tripDates" class="form-input" placeholder="Select dates"
+                                value="Feb 15 - Feb 22, 2026">
+                        </div>
+
+                        <!-- Duration -->
+                        <div class="trip-stats">
+                            <div class="stat-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                <div>
+                                    <span class="stat-label">Duration</span>
+                                    <span class="stat-value" id="tripDuration">7 Days</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                                </svg>
+                                <div>
+                                    <span class="stat-label">Travelers</span>
+                                    <span class="stat-value" id="tripTravelers">2 Adults</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Destinations in Trip -->
+                        <div class="trip-destinations">
+                            <h3>Destinations <span class="count" id="destinationCount">0</span></h3>
+                            <div class="destinations-list" id="tripDestinationsList">
+                                <div class="empty-state">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    <p>No destinations added yet</p>
+                                    <small>Browse destinations below to add them to your trip</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Budget Estimate -->
+                        <div class="budget-estimate">
+                            <div class="budget-header">
+                                <span>Estimated Budget</span>
+                                <span class="budget-amount" id="budgetAmount">$0</span>
+                            </div>
+                            <div class="budget-bar">
+                                <div class="budget-fill" id="budgetFill" style="width: 0%"></div>
+                            </div>
+                            <small class="budget-note">Based on selected destinations and duration</small>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="trip-actions">
+                            <button class="btn-primary btn-block" id="saveTrip">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                                    <polyline points="17 21 17 13 7 13 7 21" />
+                                    <polyline points="7 3 7 8 15 8" />
+                                </svg>
+                                Save Trip
+                            </button>
+                            <button class="btn-secondary btn-block" id="shareTrip">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="18" cy="5" r="3" />
+                                    <circle cx="6" cy="12" r="3" />
+                                    <circle cx="18" cy="19" r="3" />
+                                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                                </svg>
+                                Share Trip
+                            </button>
+                            <button class="btn-outline btn-block" id="clearTrip">Clear All</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content - Destination Browser -->
+                <div class="planner-content">
+                    <!-- Search and Filters -->
+                    <div class="planner-controls">
+                        <div class="search-box">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="m21 21-4.35-4.35" />
+                            </svg>
+                            <input type="text" id="plannerSearch" placeholder="Search destinations..."
+                                class="search-input">
+                        </div>
+
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-category="all">All</button>
+                            <button class="filter-tab" data-category="unesco">UNESCO Sites</button>
+                            <button class="filter-tab" data-category="beach">Beaches</button>
+                            <button class="filter-tab" data-category="wildlife">Wildlife</button>
+                            <button class="filter-tab" data-category="culture">Cultural</button>
+                        </div>
+                    </div>
+
+                    <!-- Destinations Grid -->
+                    <div class="planner-destinations-grid" id="plannerDestinationsGrid">
+                        <!-- Destinations will be loaded here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <section class="trip-map-section">
+                <h2 class="section-title">Your Trip Route</h2>
+                <div class="map-container">
+                    <div id="tripMap" class="trip-map"></div>
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <span class="legend-marker start"></span>
+                            <span>Start</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-marker destination"></span>
+                            <span>Destination</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-marker route"></span>
+                            <span>Route</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-brand">
+                        <svg class="logo-icon" width="32" height="32" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 5L25 15L35 17L27 25L29 35L20 30L11 35L13 25L5 17L15 15L20 5Z"
+                                fill="currentColor" />
+                        </svg>
+                        <span class="logo-text">Explore<span class="logo-accent">Lanka</span></span>
+                    </div>
+                    <p class="footer-description">Discover the wonders of Sri Lanka with expertly curated travel
+                        experiences and personalized itineraries.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="trip-planner.html">Plan Trip</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ExploreLanka. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/destinations-data.js"></script>
+    <script src="js/trip-planner.js"></script>
+</body>
+
+</html>

@@ -612,7 +612,8 @@
 }
 
 .btn-card:hover {
-    background: var(--primary-dark);
+    background: var(--primary-light);
+    color: var(--dark);
     transform: translateX(4px);
 }
 

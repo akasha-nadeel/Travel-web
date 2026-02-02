@@ -1,0 +1,586 @@
+/* ============================================
+   FILTERS & DESTINATIONS PAGE
+   ============================================ */
+
+/* ============================================
+   PAGE HEADER
+   ============================================ */
+
+.page-header {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 72px;
+}
+
+.page-header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.page-header-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(30, 107, 78, 0.85) 0%,
+            rgba(38, 70, 83, 0.75) 100%);
+}
+
+.page-header-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--white);
+    padding: var(--space-12) 0;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+    font-size: var(--text-sm);
+    color: var(--gray-200);
+}
+
+.breadcrumb a {
+    color: var(--white);
+    transition: color var(--transition-fast);
+}
+
+.breadcrumb a:hover {
+    color: var(--accent);
+}
+
+.page-title {
+    font-size: var(--text-6xl);
+    font-weight: var(--font-black);
+    color: var(--white);
+    margin-bottom: var(--space-4);
+}
+
+.page-subtitle {
+    font-size: var(--text-xl);
+    color: var(--gray-100);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   DESTINATIONS LAYOUT
+   ============================================ */
+
+.destinations-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-8);
+    align-items: start;
+    min-height: 800px;
+    /* Prevent layout jump */
+}
+
+/* ============================================
+   FILTER SIDEBAR
+   ============================================ */
+
+.filter-sidebar {
+    background: var(--white);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 100px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray-300) var(--gray-100);
+}
+
+.filter-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.filter-sidebar::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: var(--radius-full);
+}
+
+.filter-sidebar::-webkit-scrollbar-thumb {
+    background: var(--gray-300);
+    border-radius: var(--radius-full);
+}
+
+.filter-sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-400);
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-4);
+    border-bottom: 2px solid var(--gray-200);
+}
+
+.filter-header h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--dark);
+}
+
+.btn-text-small {
+    background: transparent;
+    color: var(--primary);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.btn-text-small:hover {
+    background: var(--gray-100);
+}
+
+/* Active Filters */
+.active-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+    min-height: 32px;
+}
+
+.filter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--primary-light);
+    color: var(--white);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: var(--font-semibold);
+    animation: fadeIn 0.3s ease;
+}
+
+.filter-badge button {
+    background: transparent;
+    color: var(--white);
+    padding: 0;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    transition: background var(--transition-fast);
+}
+
+.filter-badge button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Filter Groups */
+.filter-group {
+    margin-bottom: var(--space-6);
+}
+
+.filter-title {
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: var(--dark);
+    margin-bottom: var(--space-3);
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+/* Custom Checkbox */
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.filter-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    background: var(--white);
+    transition: all var(--transition-fast);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.filter-checkbox:hover .checkmark {
+    border-color: var(--primary);
+}
+
+.filter-checkbox input:checked~.checkmark {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.filter-checkbox input:checked~.checkmark::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.label-text {
+    font-size: var(--text-sm);
+    color: var(--gray-700);
+    font-weight: var(--font-medium);
+}
+
+.filter-checkbox input:checked~.label-text {
+    color: var(--dark);
+    font-weight: var(--font-semibold);
+}
+
+/* Price Range */
+.price-range {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.price-inputs {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.price-inputs input {
+    flex: 1;
+    width: 100%;
+    /* Ensure it fits flex container */
+    max-width: 80px;
+    /* Limit width */
+    padding: var(--space-2);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-family: var(--font-body);
+    color: var(--gray-800);
+    transition: border-color var(--transition-fast);
+}
+
+.price-inputs input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.price-inputs span {
+    color: var(--gray-400);
+    font-weight: var(--font-medium);
+}
+
+.price-slider input[type="range"] {
+    width: 100%;
+    height: 6px;
+    background: var(--gray-200);
+    border-radius: var(--radius-full);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.price-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--primary);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+}
+
+.price-slider input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--primary);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    border: none;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Filter Apply Button */
+.filter-apply-btn {
+    width: 100%;
+    margin-top: var(--space-4);
+    display: none;
+}
+
+/* ============================================
+   DESTINATIONS TOOLBAR
+   ============================================ */
+
+.destinations-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-6);
+    padding: var(--space-4);
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+}
+
+.toolbar-left,
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.filter-toggle {
+    display: none;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--gray-100);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-medium);
+    color: var(--gray-700);
+}
+
+.filter-toggle:hover {
+    background: var(--gray-200);
+}
+
+.results-count {
+    font-size: var(--text-sm);
+    color: var(--gray-600);
+    font-weight: var(--font-medium);
+}
+
+.sort-select {
+    padding: var(--space-2) var(--space-4);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-family: var(--font-body);
+    font-weight: var(--font-medium);
+    color: var(--gray-700);
+    background: var(--white);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.sort-select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.view-toggle {
+    display: flex;
+    gap: var(--space-1);
+    background: var(--gray-100);
+    padding: var(--space-1);
+    border-radius: var(--radius-md);
+}
+
+.view-btn {
+    padding: var(--space-2);
+    background: transparent;
+    color: var(--gray-600);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.view-btn:hover {
+    color: var(--primary);
+}
+
+.view-btn.active {
+    background: var(--white);
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   NO RESULTS
+   ============================================ */
+
+.no-results {
+    text-align: center;
+    padding: var(--space-20) var(--space-6);
+}
+
+.no-results svg {
+    color: var(--gray-300);
+    margin-bottom: var(--space-6);
+}
+
+.no-results h3 {
+    font-size: var(--text-2xl);
+    color: var(--dark);
+    margin-bottom: var(--space-3);
+}
+
+.no-results p {
+    font-size: var(--text-base);
+    color: var(--gray-600);
+    margin-bottom: var(--space-6);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .destinations-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 320px;
+        height: 100vh;
+        z-index: var(--z-modal);
+        overflow-y: auto;
+        transition: left var(--transition-base);
+        border-radius: 0;
+    }
+
+    .filter-sidebar.active {
+        left: 0;
+    }
+
+    .filter-toggle {
+        display: flex;
+    }
+
+    .filter-apply-btn {
+        display: block;
+    }
+
+    /* Filter Overlay */
+    .filter-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: calc(var(--z-modal) - 1);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition-base);
+    }
+
+    .filter-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        min-height: 300px;
+    }
+
+    .page-title {
+        font-size: var(--text-4xl);
+    }
+
+    .page-subtitle {
+        font-size: var(--text-base);
+    }
+
+    .destinations-toolbar {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+
+    .toolbar-left,
+    .toolbar-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .filter-sidebar {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .view-toggle {
+        order: -1;
+    }
+}
+
+@media (max-width: 640px) {
+    .page-header {
+        min-height: 250px;
+    }
+
+    .breadcrumb {
+        font-size: var(--text-xs);
+    }
+
+    .destinations-toolbar {
+        padding: var(--space-3);
+    }
+
+    .results-count {
+        display: none;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

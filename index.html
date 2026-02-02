@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Discover the wonders of Sri Lanka - From ancient temples to pristine beaches. Plan your perfect Sri Lankan adventure with expert guides and authentic experiences.">
+    <meta name="keywords" content="Sri Lanka travel, Sri Lanka tourism, Sigiriya, Ella, Galle Fort, Ceylon tours">
+    <meta property="og:title" content="Explore Sri Lanka - Your Gateway to Paradise">
+    <meta property="og:description"
+        content="Discover breathtaking destinations, authentic experiences, and unforgettable adventures in Sri Lanka">
+    <meta property="og:type" content="website">
+
+    <title>Explore Sri Lanka - Your Gateway to Paradise</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/enhancements.css">
+</head>
+
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <svg class="loader-logo" width="80" height="80" viewBox="0 0 40 40" fill="none">
+            <path d="M20 5L35 12.5V27.5L20 35L5 27.5V12.5L20 5Z" fill="currentColor" opacity="0.2" stroke="currentColor"
+                stroke-width="2" />
+            <circle cx="20" cy="20" r="6" fill="currentColor" />
+        </svg>
+        <div class="loader-text">Loading Sri Lanka...</div>
+        <div class="loader-bar">
+            <div class="loader-progress"></div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" data-tooltip="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M20 5L35 12.5V27.5L20 35L5 27.5V12.5L20 5Z" fill="currentColor" opacity="0.2" />
+                    <path d="M20 5L35 12.5V27.5L20 35L5 27.5V12.5L20 5Z" stroke="currentColor" stroke-width="2" />
+                    <circle cx="20" cy="20" r="6" fill="currentColor" />
+                </svg>
+                <span class="logo-text">Explore<span class="logo-accent">Lanka</span></span>
+            </div>
+
+            <div class="nav-links">
+                <a href="#destinations" class="nav-link">Destinations</a>
+                <a href="#experiences" class="nav-link">Experiences</a>
+                <a href="#plan-trip" class="nav-link">Plan Trip</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn-icon" id="searchToggle" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2" />
+                        <path d="M14 14L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+                <button class="btn-icon" id="wishlistBtn" aria-label="Wishlist">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path
+                            d="M10 17.5L2.5 10C0.833333 8.33333 0.833333 5.66667 2.5 4C4.16667 2.33333 6.83333 2.33333 8.5 4L10 5.5L11.5 4C13.1667 2.33333 15.8333 2.33333 17.5 4C19.1667 5.66667 19.1667 8.33333 17.5 10L10 17.5Z"
+                            stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    <span class="badge" id="wishlistCount">0</span>
+                </button>
+                <button class="btn-primary">Book Now</button>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <img src="assets/images/destinations/sigiriya_new.png" alt="Sigiriya Rock Fortress at sunset"
+                class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 1L10.5 6L16 6.75L12 10.5L13 16L8 13.25L3 16L4 10.5L0 6.75L5.5 6L8 1Z" />
+                </svg>
+                <span>UNESCO World Heritage Sites</span>
+            </div>
+
+            <h1 class="hero-title">
+                Discover the
+                <span class="hero-title-accent">Pearl of the Indian Ocean</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                From ancient kingdoms to pristine beaches, embark on an unforgettable journey through Sri Lanka's
+                breathtaking landscapes and rich cultural heritage.
+            </p>
+
+            <!-- Search Widget -->
+            <div class="search-widget">
+                <div class="search-tabs">
+                    <button class="search-tab active" data-tab="destinations">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path
+                                d="M10 2C6.68629 2 4 4.68629 4 8C4 12 10 18 10 18C10 18 16 12 16 8C16 4.68629 13.3137 2 10 2Z"
+                                stroke="currentColor" stroke-width="2" />
+                            <circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Destinations
+                    </button>
+                    <button class="search-tab" data-tab="experiences">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <rect x="2" y="4" width="16" height="14" rx="2" stroke="currentColor" stroke-width="2" />
+                            <path d="M2 8H18" stroke="currentColor" stroke-width="2" />
+                            <path d="M6 2V6M14 2V6" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Experiences
+                    </button>
+                </div>
+
+                <div class="search-form">
+                    <div class="search-field">
+                        <label for="searchLocation">Where to?</label>
+                        <input type="text" id="searchLocation" placeholder="Search destinations..." autocomplete="off">
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </div>
+
+                    <div class="search-field">
+                        <label for="searchDates">When?</label>
+                        <input type="text" id="searchDates" placeholder="Add dates" readonly>
+                    </div>
+
+                    <div class="search-field">
+                        <label for="searchGuests">Travelers</label>
+                        <input type="text" id="searchGuests" placeholder="Add guests" readonly>
+                    </div>
+
+                    <button class="btn-search">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" />
+                            <path d="M16 16L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        Search
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">UNESCO Sites</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">1,340+</span>
+                    <span class="stat-label">Beaches</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">22</span>
+                    <span class="stat-label">National Parks</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">2,500+</span>
+                    <span class="stat-label">Years of History</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- Featured Destinations -->
+    <section class="section" id="destinations">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-badge">Top Destinations</span>
+                <h2 class="section-title">Explore Sri Lanka's Wonders</h2>
+                <p class="section-subtitle">From ancient fortresses to tropical paradises, discover the destinations
+                    that make Sri Lanka unforgettable</p>
+                <a href="destinations.html" class="btn-text">
+                    View all destinations
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="destinations-grid">
+                <!-- Sigiriya -->
+                <article class="destination-card">
+                    <div class="card-image">
+                        <img src="assets/images/destinations/sigiriya_new.png" alt="Sigiriya Lion Rock Fortress">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 21L3 12C1 10 1 7 3 5C5 3 8 3 10 5L12 7L14 5C16 3 19 3 21 5C23 7 23 10 21 12L12 21Z"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </button>
+                        <div class="card-badge">UNESCO Site</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Sigiriya</h3>
+                                <p class="card-location">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path
+                                            d="M8 1.5C5.51472 1.5 3.5 3.51472 3.5 6C3.5 9.5 8 14.5 8 14.5C8 14.5 12.5 9.5 12.5 6C12.5 3.51472 10.4853 1.5 8 1.5Z"
+                                            stroke="currentColor" stroke-width="1.5" />
+                                        <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.5" />
+                                    </svg>
+                                    Cultural Triangle
+                                </p>
+                            </div>
+                            <div class="card-rating">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M8 1L10 5.5L15 6.25L11.5 9.5L12.5 15L8 12.5L3.5 15L4.5 9.5L1 6.25L6 5.5L8 1Z" />
+                                </svg>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <p class="card-description">Ancient rock fortress rising 200m above jungle, featuring stunning
+                            frescoes and breathtaking panoramic views.</p>
+                        <div class="card-footer">
+                            <div class="card-tags">
+                                <span class="tag">History</span>
+                                <span class="tag">Adventure</span>
+                            </div>
+                            <a href="destination-detail.html?id=sigiriya" class="btn-card">Explore</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Ella -->
+                <article class="destination-card">
+                    <div class="card-image">
+                        <img src="assets/images/destinations/ella.jpg" alt="Nine Arch Bridge in Ella">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 21L3 12C1 10 1 7 3 5C5 3 8 3 10 5L12 7L14 5C16 3 19 3 21 5C23 7 23 10 21 12L12 21Z"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </button>
+                        <div class="card-badge">Most Popular</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Ella</h3>
+                                <p class="card-location">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path
+                                            d="M8 1.5C5.51472 1.5 3.5 3.51472 3.5 6C3.5 9.5 8 14.5 8 14.5C8 14.5 12.5 9.5 12.5 6C12.5 3.51472 10.4853 1.5 8 1.5Z"
+                                            stroke="currentColor" stroke-width="1.5" />
+                                        <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.5" />
+                                    </svg>
+                                    Hill Country
+                                </p>
+                            </div>
+                            <div class="card-rating">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M8 1L10 5.5L15 6.25L11.5 9.5L12.5 15L8 12.5L3.5 15L4.5 9.5L1 6.25L6 5.5L8 1Z" />
+                                </svg>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        <p class="card-description">Misty mountains, iconic Nine Arch Bridge, and scenic train journeys
+                            through emerald tea plantations.</p>
+                        <div class="card-footer">
+                            <div class="card-tags">
+                                <span class="tag">Nature</span>
+                                <span class="tag">Hiking</span>
+                            </div>
+                            <a href="destination-detail.html?id=ella" class="btn-card">Explore</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Galle Fort -->
+                <article class="destination-card">
+                    <div class="card-image">
+                        <img src="assets/images/destinations/galle_fort.png" alt="Galle Fort lighthouse and ramparts">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 21L3 12C1 10 1 7 3 5C5 3 8 3 10 5L12 7L14 5C16 3 19 3 21 5C23 7 23 10 21 12L12 21Z"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </button>
+                        <div class="card-badge">UNESCO Site</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Galle Fort</h3>
+                                <p class="card-location">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path
+                                            d="M8 1.5C5.51472 1.5 3.5 3.51472 3.5 6C3.5 9.5 8 14.5 8 14.5C8 14.5 12.5 9.5 12.5 6C12.5 3.51472 10.4853 1.5 8 1.5Z"
+                                            stroke="currentColor" stroke-width="1.5" />
+                                        <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.5" />
+                                    </svg>
+                                    Southern Coast
+                                </p>
+                            </div>
+                            <div class="card-rating">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M8 1L10 5.5L15 6.25L11.5 9.5L12.5 15L8 12.5L3.5 15L4.5 9.5L1 6.25L6 5.5L8 1Z" />
+                                </svg>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                        <p class="card-description">17th-century Dutch colonial fort with cobblestone streets, boutique
+                            shops, and stunning ocean views.</p>
+                        <div class="card-footer">
+                            <div class="card-tags">
+                                <span class="tag">Culture</span>
+                                <span class="tag">Architecture</span>
+                            </div>
+                            <a href="destination-detail.html?id=galle-fort" class="btn-card">Explore</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Mirissa -->
+                <article class="destination-card">
+                    <div class="card-image">
+                        <img src="assets/images/destinations/mirissa.jpg" alt="Mirissa beach at sunset">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 21L3 12C1 10 1 7 3 5C5 3 8 3 10 5L12 7L14 5C16 3 19 3 21 5C23 7 23 10 21 12L12 21Z"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </button>
+                        <div class="card-badge">Top Beach</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Mirissa</h3>
+                                <p class="card-location">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path
+                                            d="M8 1.5C5.51472 1.5 3.5 3.51472 3.5 6C3.5 9.5 8 14.5 8 14.5C8 14.5 12.5 9.5 12.5 6C12.5 3.51472 10.4853 1.5 8 1.5Z"
+                                            stroke="currentColor" stroke-width="1.5" />
+                                        <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.5" />
+                                    </svg>
+                                    South Coast
+                                </p>
+                            </div>
+                            <div class="card-rating">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M8 1L10 5.5L15 6.25L11.5 9.5L12.5 15L8 12.5L3.5 15L4.5 9.5L1 6.25L6 5.5L8 1Z" />
+                                </svg>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <p class="card-description">Paradise beach town famous for whale watching, surfing, and
+                            spectacular golden sunsets over the Indian Ocean.</p>
+                        <div class="card-footer">
+                            <div class="card-tags">
+                                <span class="tag">Beach</span>
+                                <span class="tag">Wildlife</span>
+                            </div>
+                            <a href="#" class="btn-card">Explore</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Yala National Park -->
+                <article class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1544979590-37e9b47eb705?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Leopard in Yala National Park">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 21L3 12C1 10 1 7 3 5C5 3 8 3 10 5L12 7L14 5C16 3 19 3 21 5C23 7 23 10 21 12L12 21Z"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </button>
+                        <div class="card-badge">Wildlife</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Yala National Park</h3>
+                                <p class="card-location">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path
+                                            d="M8 1.5C5.51472 1.5 3.5 3.51472 3.5 6C3.5 9.5 8 14.5 8 14.5C8 14.5 12.5 9.5 12.5 6C12.5 3.51472 10.4853 1.5 8 1.5Z"
+                                            stroke="currentColor" stroke-width="1.5" />
+                                        <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.5" />
+                                    </svg>
+                                    Southeast Coast
+                                </p>
+                            </div>
+                            <div class="card-rating">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M8 1L10 5.5L15 6.25L11.5 9.5L12.5 15L8 12.5L3.5 15L4.5 9.5L1 6.25L6 5.5L8 1Z" />
+                                </svg>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        <p class="card-description">Home to the world's highest density of leopards, plus elephants,
+                            sloth bears, and over 200 bird species.</p>
+                        <div class="card-footer">
+                            <div class="card-tags">
+                                <span class="tag">Safari</span>
+                                <span class="tag">Wildlife</span>
+                            </div>
+                            <a href="#" class="btn-card">Explore</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Kandy -->
+                <article class="destination-card">
+                    <div class="card-image">
+                        <img src="assets/images/destinations/kandy.jpg" alt="Temple of the Sacred Tooth Relic in Kandy">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 21L3 12C1 10 1 7 3 5C5 3 8 3 10 5L12 7L14 5C16 3 19 3 21 5C23 7 23 10 21 12L12 21Z"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </button>
+                        <div class="card-badge">UNESCO Site</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Kandy</h3>
+                                <p class="card-location">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path
+                                            d="M8 1.5C5.51472 1.5 3.5 3.51472 3.5 6C3.5 9.5 8 14.5 8 14.5C8 14.5 12.5 9.5 12.5 6C12.5 3.51472 10.4853 1.5 8 1.5Z"
+                                            stroke="currentColor" stroke-width="1.5" />
+                                        <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.5" />
+                                    </svg>
+                                    Central Province
+                                </p>
+                            </div>
+                            <div class="card-rating">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M8 1L10 5.5L15 6.25L11.5 9.5L12.5 15L8 12.5L3.5 15L4.5 9.5L1 6.25L6 5.5L8 1Z" />
+                                </svg>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                        <p class="card-description">Sacred city housing the Temple of the Tooth Relic, surrounded by
+                            misty hills and the serene Kandy Lake.</p>
+                        <div class="card-footer">
+                            <div class="card-tags">
+                                <span class="tag">Spiritual</span>
+                                <span class="tag">Culture</span>
+                            </div>
+                            <a href="#" class="btn-card">Explore</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences Section -->
+    <section class="section section-dark" id="experiences">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-badge">Unique Experiences</span>
+                <h2 class="section-title">Unforgettable Adventures Await</h2>
+                <p class="section-subtitle">Immerse yourself in authentic Sri Lankan experiences crafted for every type
+                    of traveler</p>
+            </div>
+
+            <div class="experiences-grid">
+                <!-- Wildlife Safari -->
+                <article class="experience-card">
+                    <div class="experience-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2" />
+                            <path
+                                d="M24 14C19.5817 14 16 17.5817 16 22C16 26.4183 24 34 24 34C24 34 32 26.4183 32 22C32 17.5817 28.4183 14 24 14Z"
+                                stroke="currentColor" stroke-width="2" />
+                            <circle cx="24" cy="22" r="3" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <div class="experience-image">
+                        <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Elephant safari in Sri Lanka">
+                    </div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">Wildlife Safaris</h3>
+                        <p class="experience-description">Spot leopards, elephants, and exotic birds in their natural
+                            habitat across 22 national parks.</p>
+                        <div class="experience-meta">
+                            <span class="experience-duration">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" />
+                                    <path d="M8 5V8L10.5 10.5" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                </svg>
+                                Half/Full Day
+                            </span>
+                            <span class="experience-price">From $45</span>
+                        </div>
+                        <a href="#" class="btn-experience">Book Experience</a>
+                    </div>
+                </article>
+
+                <!-- Train Journey -->
+                <article class="experience-card">
+                    <div class="experience-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="12" y="14" width="24" height="20" rx="2" stroke="currentColor" stroke-width="2" />
+                            <path d="M12 24H36" stroke="currentColor" stroke-width="2" />
+                            <circle cx="18" cy="38" r="2" fill="currentColor" />
+                            <circle cx="30" cy="38" r="2" fill="currentColor" />
+                            <path d="M16 34H20M28 34H32" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="experience-image">
+                        <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Scenic train journey through tea plantations">
+                    </div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">Scenic Train Rides</h3>
+                        <p class="experience-description">Journey through misty mountains and emerald tea estates on one
+                            of the world's most beautiful train routes.</p>
+                        <div class="experience-meta">
+                            <span class="experience-duration">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" />
+                                    <path d="M8 5V8L10.5 10.5" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                </svg>
+                                6-7 Hours
+                            </span>
+                            <span class="experience-price">From $15</span>
+                        </div>
+                        <a href="#" class="btn-experience">Book Experience</a>
+                    </div>
+                </article>
+
+                <!-- Temple Tours -->
+                <article class="experience-card">
+                    <div class="experience-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 8L28 16H20L24 8Z" stroke="currentColor" stroke-width="2" />
+                            <rect x="16" y="16" width="16" height="20" stroke="currentColor" stroke-width="2" />
+                            <path d="M20 36V26H28V36" stroke="currentColor" stroke-width="2" />
+                            <circle cx="24" cy="22" r="2" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <div class="experience-image">
+                        <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Ancient Buddhist temple in Sri Lanka">
+                    </div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">Cultural Temple Tours</h3>
+                        <p class="experience-description">Explore sacred Buddhist and Hindu temples with expert guides
+                            sharing 2,500 years of history.</p>
+                        <div class="experience-meta">
+                            <span class="experience-duration">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" />
+                                    <path d="M8 5V8L10.5 10.5" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                </svg>
+                                3-4 Hours
+                            </span>
+                            <span class="experience-price">From $30</span>
+                        </div>
+                        <a href="#" class="btn-experience">Book Experience</a>
+                    </div>
+                </article>
+
+                <!-- Beach Activities -->
+                <article class="experience-card">
+                    <div class="experience-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M8 32C8 32 12 28 16 28C20 28 24 32 24 32C24 32 28 28 32 28C36 28 40 32 40 32"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            <circle cx="24" cy="18" r="6" stroke="currentColor" stroke-width="2" />
+                            <path d="M24 12V8M18 14L15 11M30 14L33 11" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="experience-image">
+                        <img src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Surfing and water sports in Sri Lanka">
+                    </div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">Beach & Water Sports</h3>
+                        <p class="experience-description">Surf world-class waves, dive pristine reefs, or simply relax
+                            on 1,340+ kilometers of coastline.</p>
+                        <div class="experience-meta">
+                            <span class="experience-duration">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" />
+                                    <path d="M8 5V8L10.5 10.5" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                </svg>
+                                2-4 Hours
+                            </span>
+                            <span class="experience-price">From $25</span>
+                        </div>
+                        <a href="#" class="btn-experience">Book Experience</a>
+                    </div>
+                </article>
+
+                <!-- Food Tours -->
+                <article class="experience-card">
+                    <div class="experience-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="12" stroke="currentColor" stroke-width="2" />
+                            <path d="M24 16V24L28 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            <circle cx="24" cy="24" r="2" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <div class="experience-image">
+                        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Traditional Sri Lankan cuisine">
+                    </div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">Culinary Experiences</h3>
+                        <p class="experience-description">Savor authentic rice & curry, street food tours, and hands-on
+                            cooking classes with local chefs.</p>
+                        <div class="experience-meta">
+                            <span class="experience-duration">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" />
+                                    <path d="M8 5V8L10.5 10.5" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                </svg>
+                                3-5 Hours
+                            </span>
+                            <span class="experience-price">From $35</span>
+                        </div>
+                        <a href="#" class="btn-experience">Book Experience</a>
+                    </div>
+                </article>
+
+                <!-- Wellness -->
+                <article class="experience-card">
+                    <div class="experience-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path
+                                d="M24 12C20 12 16 14 16 18V30C16 34 20 36 24 36C28 36 32 34 32 30V18C32 14 28 12 24 12Z"
+                                stroke="currentColor" stroke-width="2" />
+                            <path d="M16 22H32M20 16V14M28 16V14" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="experience-image">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Ayurveda wellness retreat">
+                    </div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">Ayurveda & Wellness</h3>
+                        <p class="experience-description">Rejuvenate with ancient healing traditions, spa treatments,
+                            and yoga retreats in serene settings.</p>
+                        <div class="experience-meta">
+                            <span class="experience-duration">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" />
+                                    <path d="M8 5V8L10.5 10.5" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                </svg>
+                                1-7 Days
+                            </span>
+                            <span class="experience-price">From $80</span>
+                        </div>
+                        <a href="#" class="btn-experience">Book Experience</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-badge">Traveler Stories</span>
+                <h2 class="section-title">What Our Travelers Say</h2>
+                <p class="section-subtitle">Real experiences from adventurers who've explored Sri Lanka with us</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <article class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">"The train journey from Kandy to Ella was absolutely magical! Rolling
+                        through tea plantations with mountains in the mist - it's a memory I'll cherish forever. Our
+                        guide was knowledgeable and the entire experience was seamless."</p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="Sarah Johnson" class="author-avatar">
+                        <div>
+                            <p class="author-name">Sarah Johnson</p>
+                            <p class="author-location">London, UK</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">"We spotted 3 leopards in Yala! The safari was incredible and our driver
+                        knew exactly where to go. The diversity of wildlife - elephants, crocodiles, peacocks - exceeded
+                        all expectations. A must-do for nature lovers!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Michael Chen" class="author-avatar">
+                        <div>
+                            <p class="author-name">Michael Chen</p>
+                            <p class="author-location">Singapore</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 1L12.5 7L19 7.75L14.5 11.5L16 19L10 15.5L4 19L5.5 11.5L1 7.75L7.5 7L10 1Z" />
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">"Climbing Sigiriya at sunrise was breathtaking! The ancient frescoes,
+                        the views from the top, the history - everything was perfect. The booking process was easy and
+                        the local insights made it even more special."</p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Emma Rodriguez" class="author-avatar">
+                        <div>
+                            <p class="author-name">Emma Rodriguez</p>
+                            <p class="author-location">Barcelona, Spain</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2 class="newsletter-title">Ready to Explore Sri Lanka?</h2>
+                    <p class="newsletter-subtitle">Subscribe for exclusive deals, travel tips, and insider guides to
+                        make your Sri Lankan adventure unforgettable.</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required class="newsletter-input">
+                    <button type="submit" class="btn-newsletter">
+                        Subscribe
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-brand">
+                        <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 5L35 12.5V27.5L20 35L5 27.5V12.5L20 5Z" fill="currentColor" opacity="0.2" />
+                            <path d="M20 5L35 12.5V27.5L20 35L5 27.5V12.5L20 5Z" stroke="currentColor"
+                                stroke-width="2" />
+                            <circle cx="20" cy="20" r="6" fill="currentColor" />
+                        </svg>
+                        <span class="logo-text">Explore<span class="logo-accent">Lanka</span></span>
+                    </div>
+                    <p class="footer-description">Your trusted companion for discovering the wonders of Sri Lanka. From
+                        ancient temples to pristine beaches, we make every journey unforgettable.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#fff" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-title">Destinations</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Sigiriya</a></li>
+                        <li><a href="#">Ella</a></li>
+                        <li><a href="#">Galle Fort</a></li>
+                        <li><a href="#">Kandy</a></li>
+                        <li><a href="#">Mirissa</a></li>
+                        <li><a href="#">Yala National Park</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-title">Experiences</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Wildlife Safaris</a></li>
+                        <li><a href="#">Cultural Tours</a></li>
+                        <li><a href="#">Beach Activities</a></li>
+                        <li><a href="#">Train Journeys</a></li>
+                        <li><a href="#">Food & Culinary</a></li>
+                        <li><a href="#">Wellness Retreats</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-title">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ExploreLanka. All rights reserved. Crafted with ❤️ for travelers.</p>
+                <div class="footer-badges">
+                    <span class="trust-badge">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 1L10 5.5L15 6.25L11.5 9.5L12.5 15L8 12.5L3.5 15L4.5 9.5L1 6.25L6 5.5L8 1Z" />
+                        </svg>
+                        TripAdvisor Certified
+                    </span>
+                    <span class="trust-badge">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 1L2 6V14H14V6L8 1Z" />
+                        </svg>
+                        Secure Booking
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>

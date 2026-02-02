@@ -8,8 +8,7 @@ class BookingSystem {
         this.bookingData = {
             destination: 'Sigiriya',
             destinationLocation: 'Cultural Triangle, Sri Lanka',
-            checkIn: '',
-            checkOut: '',
+            visitDate: '',
             adults: 2,
             children: 0,
             package: '',
@@ -28,7 +27,7 @@ class BookingSystem {
     init() {
         this.setupEventListeners();
         this.updateSummary();
-        this.setMinDates();
+        this.setMinDate();
         this.loadDestinationFromURL();
     }
 
@@ -51,15 +50,9 @@ class BookingSystem {
             btn.addEventListener('click', (e) => this.selectPackage(e));
         });
 
-        // Date inputs
-        document.getElementById('checkIn')?.addEventListener('change', (e) => {
-            this.bookingData.checkIn = e.target.value;
-            this.updateCheckOutMin();
-            this.updateSummary();
-        });
-
-        document.getElementById('checkOut')?.addEventListener('change', (e) => {
-            this.bookingData.checkOut = e.target.value;
+        // Date input
+        document.getElementById('visitDate')?.addEventListener('change', (e) => {
+            this.bookingData.visitDate = e.target.value;
             this.updateSummary();
         });
 
@@ -100,24 +93,10 @@ class BookingSystem {
         });
     }
 
-    setMinDates() {
+    setMinDate() {
         const today = new Date().toISOString().split('T')[0];
-        const checkInInput = document.getElementById('checkIn');
-        const checkOutInput = document.getElementById('checkOut');
-
-        if (checkInInput) checkInInput.min = today;
-        if (checkOutInput) checkOutInput.min = today;
-    }
-
-    updateCheckOutMin() {
-        const checkInInput = document.getElementById('checkIn');
-        const checkOutInput = document.getElementById('checkOut');
-
-        if (checkInInput && checkOutInput && checkInInput.value) {
-            const checkInDate = new Date(checkInInput.value);
-            checkInDate.setDate(checkInDate.getDate() + 1);
-            checkOutInput.min = checkInDate.toISOString().split('T')[0];
-        }
+        const visitDateInput = document.getElementById('visitDate');
+        if (visitDateInput) visitDateInput.min = today;
     }
 
     loadDestinationFromURL() {
@@ -125,8 +104,7 @@ class BookingSystem {
         const destinationId = urlParams.get('destination');
 
         if (destinationId) {
-            // You can load destination data from destinations-data.js if needed
-            // For now, we'll use the default Sigiriya
+            // Future: Load destination logic
         }
     }
 
@@ -169,50 +147,39 @@ class BookingSystem {
         // Update booking data
         this.bookingData.package = packageType;
 
-        // Set package price
+        // Set ticket price
         const prices = {
-            'standard': 150,
-            'premium': 250,
-            'luxury': 450
+            'standard': 35,
+            'premium': 55,
+            'luxury': 120
         };
 
         this.bookingData.packagePrice = prices[packageType];
         this.updateSummary();
     }
 
-    calculateDuration() {
-        if (!this.bookingData.checkIn || !this.bookingData.checkOut) {
-            return 0;
-        }
-
-        const checkIn = new Date(this.bookingData.checkIn);
-        const checkOut = new Date(this.bookingData.checkOut);
-        const diffTime = Math.abs(checkOut - checkIn);
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-        return diffDays;
-    }
-
     calculateTotal() {
+        // Simple Price * Travelers calculation
+        // Kids usually get 50% off
         const basePrice = this.bookingData.packagePrice * (this.bookingData.adults + this.bookingData.children * 0.5);
-        const serviceFee = basePrice * 0.1; // 10% service fee
+
+        // 5% Service Fee for online processing
+        const serviceFee = basePrice * 0.05;
         return basePrice + serviceFee;
     }
 
     formatDate(dateString) {
         if (!dateString) return '-';
         const date = new Date(dateString);
-        return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
     }
 
     updateSummary() {
-        // Update dates
-        document.getElementById('summaryCheckIn').textContent = this.formatDate(this.bookingData.checkIn);
-        document.getElementById('summaryCheckOut').textContent = this.formatDate(this.bookingData.checkOut);
-
-        // Update duration
-        const duration = this.calculateDuration();
-        document.getElementById('summaryDuration').textContent = duration > 0 ? `${duration} ${duration === 1 ? 'day' : 'days'}` : '-';
+        // Update date
+        const summaryDateEl = document.getElementById('summaryDate');
+        if (summaryDateEl) {
+            summaryDateEl.textContent = this.formatDate(this.bookingData.visitDate);
+        }
 
         // Update travelers
         let travelersText = '';
@@ -225,13 +192,20 @@ class BookingSystem {
         document.getElementById('summaryTravelers').textContent = travelersText || '2 Adults';
 
         // Update package
-        const packageName = this.bookingData.package ?
-            this.bookingData.package.charAt(0).toUpperCase() + this.bookingData.package.slice(1) : '-';
+        let packageName = '-';
+        if (this.bookingData.package) {
+            const names = {
+                'standard': 'Standard Entry',
+                'premium': 'Guided Tour',
+                'luxury': 'VIP Experience'
+            };
+            packageName = names[this.bookingData.package] || this.bookingData.package;
+        }
         document.getElementById('summaryPackage').textContent = packageName;
 
         // Update pricing
         const basePrice = this.bookingData.packagePrice * (this.bookingData.adults + this.bookingData.children * 0.5);
-        const serviceFee = basePrice * 0.1;
+        const serviceFee = basePrice * 0.05;
         const total = this.calculateTotal();
 
         document.getElementById('summaryBasePrice').textContent = `$${basePrice.toFixed(0)}`;
@@ -258,19 +232,15 @@ class BookingSystem {
     validateStep(step) {
         switch (step) {
             case 1:
-                if (!this.bookingData.checkIn || !this.bookingData.checkOut) {
-                    alert('Please select check-in and check-out dates');
-                    return false;
-                }
-                if (new Date(this.bookingData.checkIn) >= new Date(this.bookingData.checkOut)) {
-                    alert('Check-out date must be after check-in date');
+                if (!this.bookingData.visitDate) {
+                    alert('Please select a visit date');
                     return false;
                 }
                 return true;
 
             case 2:
                 if (!this.bookingData.package) {
-                    alert('Please select a package');
+                    alert('Please select a ticket type');
                     return false;
                 }
                 return true;
@@ -286,7 +256,6 @@ class BookingSystem {
                     return false;
                 }
 
-                // Basic email validation
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(email)) {
                     alert('Please enter a valid email address');
@@ -305,17 +274,14 @@ class BookingSystem {
                     alert('Please fill in all payment details');
                     return false;
                 }
-
                 if (cardNumber.length !== 16) {
                     alert('Please enter a valid 16-digit card number');
                     return false;
                 }
-
                 if (cvv.length !== 3) {
                     alert('Please enter a valid 3-digit CVV');
                     return false;
                 }
-
                 return true;
 
             default:
@@ -343,8 +309,6 @@ class BookingSystem {
         });
 
         this.currentStep = step;
-
-        // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -352,7 +316,8 @@ class BookingSystem {
         const date = new Date();
         const year = date.getFullYear();
         const random = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
-        return `SL-${year}-${random}`;
+        // Ticket prefix
+        return `TKT-${year}-${random}`;
     }
 
     saveBooking() {
@@ -364,7 +329,6 @@ class BookingSystem {
             status: 'confirmed'
         };
 
-        // Save to localStorage
         const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
         bookings.push(booking);
         localStorage.setItem('bookings', JSON.stringify(bookings));
@@ -375,31 +339,22 @@ class BookingSystem {
     showConfirmation() {
         const bookingId = this.saveBooking();
 
-        // Update confirmation details
         document.getElementById('bookingId').textContent = bookingId;
         document.getElementById('confirmDestination').textContent = this.bookingData.destination;
-        document.getElementById('confirmDates').textContent =
-            `${this.formatDate(this.bookingData.checkIn)} - ${this.formatDate(this.bookingData.checkOut)}`;
+        document.getElementById('confirmDates').textContent = this.formatDate(this.bookingData.visitDate);
         document.getElementById('confirmTotal').textContent = `$${this.bookingData.totalPrice.toFixed(0)}`;
 
-        // Show confirmation step
         document.querySelectorAll('.booking-step').forEach(s => {
             s.classList.remove('active');
         });
         document.getElementById('confirmation').classList.add('active');
-
-        // Hide progress indicator
         document.querySelector('.booking-progress').style.display = 'none';
-
-        // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // Confetti animation (optional)
         this.celebrateBooking();
     }
 
     celebrateBooking() {
-        // Simple celebration - you can add confetti library here
         console.log('🎉 Booking confirmed!');
     }
 }
@@ -420,7 +375,6 @@ function prevStep() {
 
 function confirmBooking() {
     if (bookingSystem.validateStep(4)) {
-        // Simulate payment processing
         const confirmBtn = document.querySelector('.btn-confirm');
         confirmBtn.textContent = 'Processing...';
         confirmBtn.disabled = true;

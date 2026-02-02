@@ -592,3 +592,29 @@
         break-inside: avoid;
     }
 }
+
+/* ============================================
+   FULL LOGO STYLES
+   ============================================ */
+
+.logo-full {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: transform var(--transition-base);
+}
+
+.nav-brand .logo-full {
+    height: 48px;
+    transform: translateY(-4px);
+}
+
+.footer-brand .logo-full {
+    height: 60px;
+    /* Slightly larger in footer */
+}
+
+.nav-brand:hover .logo-full {
+    transform: scale(1.02) translateY(-4px);
+}

@@ -22,11 +22,11 @@ class HeroSlider {
     init() {
         // Event Listeners
         if (this.prevBtn) {
-            this.prevBtn.addEventListener('click', () => this.previousSlide());
+            this.prevBtn.addEventListener('click', () => this.nextSlide());
         }
 
         if (this.nextBtn) {
-            this.nextBtn.addEventListener('click', () => this.nextSlide());
+            this.nextBtn.addEventListener('click', () => this.previousSlide());
         }
 
         // Dots navigation
@@ -34,19 +34,21 @@ class HeroSlider {
             dot.addEventListener('click', () => this.goToSlide(index));
         });
 
-        // Card click navigation
+        // Card click navigation - only middle card (next) advances slider
         this.cards.forEach((card, index) => {
             card.addEventListener('click', () => {
-                if (!card.classList.contains('active')) {
-                    this.goToSlide(index);
+                const diff = index - this.currentSlide;
+                // Only allow clicking the next card (middle position)
+                if (diff === 1 || (this.currentSlide === this.totalSlides - 1 && index === 0)) {
+                    this.nextSlide();
                 }
             });
         });
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') this.previousSlide();
-            if (e.key === 'ArrowRight') this.nextSlide();
+            if (e.key === 'ArrowLeft') this.nextSlide();
+            if (e.key === 'ArrowRight') this.previousSlide();
         });
 
         // Auto-play (optional - uncomment to enable)

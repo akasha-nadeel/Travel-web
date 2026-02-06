@@ -60,6 +60,8 @@
     margin: 0;
     padding: 0 5%;
     min-height: 100vh;
+    padding-bottom: 80px;
+    /* Lift content up to show dots */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -89,7 +91,6 @@
 
 .hero-slide-content.active {
     position: absolute;
-    /* Keep absolute to prevent stacking */
     opacity: 1;
     transform: translateX(0);
     pointer-events: all;
@@ -113,7 +114,6 @@
     margin-bottom: var(--space-8);
     max-width: 500px;
     min-height: 60px;
-    /* Fixed height to prevent jumping */
 }
 
 .btn-hero-explore {
@@ -168,9 +168,10 @@
 .hero-card {
     position: absolute;
     width: 220px;
-    height: 280px;
+    height: 320px;
+    /* Increased height */
     background: var(--white);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     cursor: pointer;
@@ -238,33 +239,8 @@
 
 /* White Circular Button (like in reference) */
 .hero-card-button {
-    position: absolute;
-    top: var(--space-4);
-    right: var(--space-4);
-    width: 48px;
-    height: 48px;
-    background: rgba(255, 255, 255, 0.95);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border-radius: var(--radius-full);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: all var(--transition-base);
-    z-index: 10;
-}
-
-.hero-card-button:hover {
-    background: var(--white);
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-}
-
-.hero-card-button svg {
-    width: 20px;
-    height: 20px;
-    color: var(--dark);
+    display: none;
+    /* Hidden as per user request */
 }
 
 .hero-card-info {
@@ -343,7 +319,8 @@
 /* Slider Dots */
 .hero-slider-dots {
     position: absolute;
-    bottom: var(--space-8);
+    bottom: 60px;
+    /* Moved up to clear bottom edge */
     left: 50%;
     transform: translateX(-50%);
     display: flex;

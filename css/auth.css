@@ -94,7 +94,7 @@
     width: 60px;
     height: 60px;
     margin: 0 auto 1rem;
-    color: var(--primary);
+    color: var(--secondary);
 }
 
 .auth-modal-title {
@@ -140,7 +140,7 @@
 
 .auth-tab.active {
     background: white;
-    color: var(--primary);
+    color: var(--secondary);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -190,8 +190,8 @@
 
 .auth-form-input:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(30, 107, 78, 0.1);
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 4px rgba(255, 214, 10, 0.15);
 }
 
 .auth-form-input.error {
@@ -227,7 +227,7 @@
 }
 
 .password-toggle:hover {
-    color: var(--primary);
+    color: var(--secondary);
 }
 
 /* Remember Me & Forgot Password */
@@ -257,7 +257,7 @@
 }
 
 .auth-forgot-link {
-    color: var(--primary);
+    color: var(--secondary);
     font-size: 0.9375rem;
     font-weight: 600;
     text-decoration: none;
@@ -265,15 +265,15 @@
 }
 
 .auth-forgot-link:hover {
-    color: #165a3e;
+    color: var(--secondary-dark);
 }
 
 /* Submit Button */
 .auth-submit-btn {
     width: 100%;
     padding: 1rem;
-    background: var(--primary);
-    color: white;
+    background: var(--secondary);
+    color: var(--dark);
     border: none;
     border-radius: 8px;
     font-weight: 600;
@@ -284,9 +284,9 @@
 }
 
 .auth-submit-btn:hover {
-    background: #165a3e;
+    background: var(--secondary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(30, 107, 78, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 214, 10, 0.4);
 }
 
 .auth-submit-btn:disabled {
@@ -337,8 +337,8 @@
 }
 
 .auth-social-btn:hover {
-    border-color: var(--primary);
-    background: rgba(30, 107, 78, 0.05);
+    border-color: var(--secondary);
+    background: rgba(255, 214, 10, 0.05);
 }
 
 .auth-social-btn svg {
@@ -355,7 +355,7 @@
 }
 
 .auth-terms a {
-    color: var(--primary);
+    color: var(--secondary);
     text-decoration: none;
     font-weight: 600;
 }
@@ -413,15 +413,15 @@
 }
 
 .user-dropdown-btn:hover {
-    border-color: var(--primary);
+    border-color: var(--secondary);
 }
 
 .user-avatar {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: var(--primary);
-    color: white;
+    background: var(--secondary);
+    color: var(--dark);
     display: flex;
     align-items: center;
     justify-content: center;

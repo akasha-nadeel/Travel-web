@@ -141,8 +141,8 @@
 .btn-experience {
     display: block;
     width: 100%;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: var(--white);
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+    color: var(--dark);
     padding: var(--space-3) var(--space-6);
     border-radius: var(--radius-lg);
     font-weight: var(--font-semibold);
@@ -246,7 +246,7 @@
    ============================================ */
 
 .newsletter-section {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
     padding: var(--space-20) 0;
     position: relative;
     overflow: hidden;
@@ -318,8 +318,8 @@
 }
 
 .btn-newsletter {
-    background: var(--white);
-    color: var(--primary);
+    background: var(--secondary);
+    color: var(--dark);
     padding: var(--space-4) var(--space-8);
     border-radius: var(--radius-xl);
     font-weight: var(--font-bold);

@@ -1,0 +1,640 @@
+/* ============================================
+   HERO SLIDER SECTION
+   ============================================ */
+
+.hero-slider {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    margin-top: -85px;
+    padding-top: 85px;
+}
+
+/* Background Images with Smooth Transitions */
+.hero-backgrounds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-bg.active {
+    opacity: 1;
+}
+
+.hero-overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0.5) 40%,
+            rgba(0, 0, 0, 0.3) 70%,
+            transparent 100%);
+    z-index: 1;
+}
+
+/* Main Container */
+.hero-slider-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 5%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-20);
+}
+
+/* Left Side - Title & Description */
+.hero-slider-left {
+    flex: 0 0 40%;
+    max-width: 500px;
+    position: relative;
+    min-height: 400px;
+    z-index: 3;
+}
+
+.hero-slide-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.hero-slide-content.active {
+    position: absolute;
+    /* Keep absolute to prevent stacking */
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+}
+
+.hero-slider-title {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: var(--font-black);
+    line-height: 1;
+    color: var(--white);
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-6);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-slider-description {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: var(--space-8);
+    max-width: 500px;
+    min-height: 60px;
+    /* Fixed height to prevent jumping */
+}
+
+.btn-hero-explore {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+    color: var(--dark);
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-full);
+    font-weight: var(--font-bold);
+    font-size: var(--text-lg);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: 0 4px 20px rgba(255, 214, 10, 0.3);
+}
+
+.btn-hero-explore:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 214, 10, 0.5);
+}
+
+.btn-hero-explore svg {
+    transition: transform var(--transition-base);
+}
+
+.btn-hero-explore:hover svg {
+    transform: translateX(4px);
+}
+
+/* Right Side - Cards Slider */
+.hero-slider-right {
+    position: relative;
+    flex: 0 0 550px;
+    width: 550px;
+    height: 400px;
+    flex-shrink: 0;
+    z-index: 2;
+}
+
+.hero-cards-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--space-4);
+}
+
+.hero-card {
+    position: absolute;
+    width: 220px;
+    height: 280px;
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.8;
+}
+
+/* Card Positioning - Left card is MAIN (active) */
+.hero-card[data-index="0"] {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scale(0.85);
+    z-index: 1;
+}
+
+.hero-card[data-index="1"] {
+    left: 200px;
+    top: 50%;
+    transform: translateY(-50%) scale(0.75);
+    z-index: 0;
+}
+
+.hero-card[data-index="2"] {
+    left: 360px;
+    top: 50%;
+    transform: translateY(-50%) scale(0.75);
+    z-index: 0;
+}
+
+.hero-card[data-index="3"],
+.hero-card[data-index="4"] {
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.hero-card.active {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+    z-index: 2;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.hero-card:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+.hero-card-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.hero-card:hover .hero-card-image img {
+    transform: scale(1.1);
+}
+
+/* White Circular Button (like in reference) */
+.hero-card-button {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all var(--transition-base);
+    z-index: 10;
+}
+
+.hero-card-button:hover {
+    background: var(--white);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hero-card-button svg {
+    width: 20px;
+    height: 20px;
+    color: var(--dark);
+}
+
+.hero-card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-5);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 50%, transparent 100%);
+    color: var(--white);
+}
+
+.hero-card-info h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-2);
+    color: var(--white);
+}
+
+.hero-card-rating {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.hero-card-rating span {
+    color: var(--secondary);
+    font-size: var(--text-sm);
+    letter-spacing: 2px;
+}
+
+/* Navigation Arrows */
+.hero-slider-nav {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    z-index: 10;
+    color: var(--white);
+}
+
+.hero-slider-nav:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.hero-slider-nav.prev {
+    top: 50%;
+    left: -25px;
+    transform: translateY(-50%);
+}
+
+.hero-slider-nav.prev:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.hero-slider-nav.next {
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%);
+}
+
+.hero-slider-nav.next:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Slider Dots */
+.hero-slider-dots {
+    position: absolute;
+    bottom: var(--space-8);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--space-3);
+    z-index: 3;
+}
+
+.hero-slider-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    padding: 0;
+}
+
+.hero-slider-dots .dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
+}
+
+.hero-slider-dots .dot.active {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    width: 32px;
+    border-radius: 6px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-slider-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-12);
+    }
+
+    .hero-slider-left {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-slider-description {
+        max-width: 100%;
+    }
+
+    .hero-slider-right {
+        width: 100%;
+        height: 350px;
+    }
+
+    .hero-card {
+        width: 180px;
+        height: 240px;
+    }
+
+    .hero-slider-title {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-slider-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .hero-slider-description {
+        font-size: var(--text-base);
+    }
+
+    .hero-slider-right {
+        height: 300px;
+    }
+
+    .hero-card {
+        width: 160px;
+        height: 220px;
+    }
+
+    /* Adjust horizontal spacing for smaller screens */
+    .hero-card[data-index="1"] {
+        left: calc(50% - 180px) !important;
+    }
+
+    .hero-card[data-index="2"] {
+        left: calc(50% + 180px) !important;
+    }
+
+    .hero-slider-nav {
+        width: 40px;
+        height: 40px;
+    }
+
+    .btn-hero-explore {
+        padding: var(--space-3) var(--space-6);
+        font-size: var(--text-base);
+    }
+}
+
+/* ============================================
+   UNFORGETTABLE ADVENTURES SECTION
+   ============================================ */
+
+.adventures-section {
+    padding: var(--space-24) 0;
+    background: var(--primary);
+    position: relative;
+}
+
+.adventures-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: var(--font-black);
+    color: var(--dark);
+    text-align: center;
+    margin-bottom: var(--space-4);
+    font-family: var(--font-display);
+}
+
+.adventures-subtitle {
+    font-size: var(--text-xl);
+    color: var(--gray-600);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--space-16);
+    line-height: var(--leading-relaxed);
+}
+
+.adventures-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-8);
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.adventure-card {
+    background: var(--white);
+    border-radius: var(--radius-3xl);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-slow);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.adventure-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.adventure-card-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.adventure-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.adventure-card:hover .adventure-card-image img {
+    transform: scale(1.1);
+}
+
+.adventure-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.3) 100%);
+}
+
+.adventure-card-content {
+    padding: var(--space-8);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.adventure-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+    border-radius: var(--radius-2xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+    color: var(--dark);
+    transition: all var(--transition-base);
+}
+
+.adventure-card:hover .adventure-icon {
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 214, 10, 0.4);
+}
+
+.adventure-card-content h3 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--dark);
+    margin-bottom: var(--space-3);
+    font-family: var(--font-display);
+}
+
+.adventure-card-content p {
+    font-size: var(--text-base);
+    color: var(--gray-600);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-6);
+    flex: 1;
+}
+
+.adventure-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--dark);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-base);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.adventure-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);
+    transition: width var(--transition-base);
+}
+
+.adventure-link:hover::after {
+    width: calc(100% - 24px);
+}
+
+.adventure-link svg {
+    transition: transform var(--transition-base);
+}
+
+.adventure-link:hover svg {
+    transform: translateX(4px);
+}
+
+.adventure-link:hover {
+    color: var(--secondary);
+}
+
+/* Responsive Design for Adventures */
+@media (max-width: 1024px) {
+    .adventures-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .adventures-section {
+        padding: var(--space-16) 0;
+    }
+
+    .adventures-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .adventure-card-image {
+        height: 180px;
+    }
+
+    .adventure-card-content {
+        padding: var(--space-6);
+    }
+
+    .adventures-title {
+        font-size: clamp(2rem, 4vw, 2.5rem);
+    }
+
+    .adventures-subtitle {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-12);
+    }
+}

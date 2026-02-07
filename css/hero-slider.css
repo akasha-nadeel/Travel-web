@@ -457,6 +457,12 @@
     line-height: var(--leading-relaxed);
 }
 
+.adventures-section .section-badge {
+    background: rgba(255, 214, 10, 0.4);
+    color: var(--dark);
+    margin-bottom: var(--space-4);
+}
+
 .adventures-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -519,8 +525,8 @@
 }
 
 .adventure-icon {
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
     border-radius: var(--radius-2xl);
     display: flex;
@@ -529,6 +535,11 @@
     margin-bottom: var(--space-4);
     color: var(--dark);
     transition: all var(--transition-base);
+}
+
+.adventure-icon svg {
+    width: 24px;
+    height: 24px;
 }
 
 .adventure-card:hover .adventure-icon {

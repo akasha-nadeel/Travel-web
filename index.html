@@ -56,7 +56,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-brand">
-                <span class="logo-text">Explore<span class="logo-accent">Lanka</span></span>
+                <img src="assets/images/logo-main.png" alt="Explore Lanka" class="nav-logo">
             </a>
 
             <div class="nav-links">
@@ -101,10 +101,12 @@
     <section class="hero hero-slider">
         <!-- Background Images (will change with slider) -->
         <div class="hero-backgrounds">
-            <div class="hero-bg active" style="background-image: url('assets/images/destinations/sigiriya.jpg');"></div>
+            <div class="hero-bg active"
+                style="background-image: url('assets/images/destinations/sigiriya-hero-bg.png');"></div>
             <div class="hero-bg" style="background-image: url('assets/images/destinations/ella.jpg');"></div>
-            <div class="hero-bg" style="background-image: url('assets/images/destinations/galle_fort.png');"></div>
-            <div class="hero-bg" style="background-image: url('assets/images/destinations/kandy.jpg');"></div>
+            <div class="hero-bg" style="background-image: url('assets/images/destinations/galle-fort-hero-bg.png');">
+            </div>
+            <div class="hero-bg" style="background-image: url('assets/images/destinations/kandy-hero-bg.jpg');"></div>
             <div class="hero-bg" style="background-image: url('assets/images/destinations/mirissa.jpg');"></div>
         </div>
         <div class="hero-overlay-gradient"></div>
@@ -254,7 +256,7 @@
 
                     <div class="hero-card" data-index="3">
                         <div class="hero-card-image">
-                            <img src="assets/images/destinations/kandy.jpg" alt="Kandy">
+                            <img src="assets/images/destinations/kandy-new.jpg" alt="Kandy">
                             <button class="hero-card-button" aria-label="Add to wishlist">
                                 <svg viewBox="0 0 24 24" fill="none">
                                     <path
@@ -447,6 +449,19 @@
         </div>
     </section>
 
+    <!-- Scenic Banner Section -->
+    <section class="scenic-banner">
+        <div class="banner-bg" style="background-image: url('assets/images/banner-tea-plantation.jpg');"></div>
+        <div class="banner-overlay"></div>
+        <div class="container">
+            <div class="banner-content-box">
+                <h2 class="banner-title">Escape to the Emerald Hills</h2>
+                <p class="banner-desc">Journey through mist-covered tea plantations and cascading waterfalls in Sri
+                    Lanka's breathtaking hill country.</p>
+                <a href="destinations.html" class="btn-primary">Explore Destinations</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Featured Destinations -->
     <section class="section" id="destinations">
@@ -1073,6 +1088,16 @@
 
     <!-- Newsletter -->
     <section class="newsletter-section">
+        <!-- Auto Background Slider -->
+        <div class="newsletter-bg-slider">
+            <div class="newsletter-slide" style="background-image: url('assets/images/discover-bg-1.jpg');"></div>
+            <div class="newsletter-slide" style="background-image: url('assets/images/discover-bg-2.jpg');"></div>
+            <div class="newsletter-slide" style="background-image: url('assets/images/discover-bg-3.png');"></div>
+            <div class="newsletter-slide" style="background-image: url('assets/images/discover-bg-4.jpg');"></div>
+            <div class="newsletter-slide" style="background-image: url('assets/images/discover-bg-5.png');"></div>
+        </div>
+        <div class="hero-overlay-gradient"></div> <!-- Reusing gradient for readability -->
+
         <div class="container">
             <div class="newsletter-content">
                 <div class="newsletter-text">
@@ -1100,7 +1125,7 @@
             <div class="footer-grid">
                 <div class="footer-column">
                     <div class="footer-brand">
-                        <img src="assets/images/logo-full.png" alt="ExploreLanka" class="logo-full">
+                        <img src="assets/images/logo-main.png" alt="ExploreLanka" class="footer-logo">
                     </div>
                     <p class="footer-description">Your trusted companion for discovering the wonders of Sri Lanka. From
                         ancient temples to pristine beaches, we make every journey unforgettable.</p>

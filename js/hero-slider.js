@@ -53,6 +53,18 @@ class HeroSlider {
 
         // Auto-play (optional - uncomment to enable)
         // this.startAutoPlay();
+
+        // Explore button functionality - Smooth scroll to content
+        const exploreBtns = document.querySelectorAll('.btn-hero-explore');
+        exploreBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetSection = document.querySelector('.adventures-section');
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
     }
 
     goToSlide(index) {

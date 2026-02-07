@@ -33,6 +33,12 @@
     transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Kandy Background Adjustment */
+.hero-bg:nth-child(4) {
+    background-position: center 30%;
+    /* Moves image down slightly to show more sky/top */
+}
+
 .hero-bg.active {
     opacity: 1;
 }
@@ -75,6 +81,8 @@
     position: relative;
     min-height: 400px;
     z-index: 3;
+    margin-top: 60px;
+    /* Move content down as requested */
 }
 
 .hero-slide-content {
@@ -462,6 +470,8 @@
     border-radius: var(--radius-3xl);
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--gray-100);
+    /* Added subtle border for definition */
     transition: all var(--transition-slow);
     position: relative;
     display: flex;

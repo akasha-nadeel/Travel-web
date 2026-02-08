@@ -5,11 +5,10 @@
 class HeroSlider {
     constructor() {
         this.currentSlide = 0;
-        this.totalSlides = 5;
-        this.isAnimating = false;
-
         // DOM Elements
         this.backgrounds = document.querySelectorAll('.hero-bg');
+        this.totalSlides = this.backgrounds.length;
+        this.isAnimating = false;
         this.slideContents = document.querySelectorAll('.hero-slide-content');
         this.cards = document.querySelectorAll('.hero-card');
         this.dots = document.querySelectorAll('.hero-slider-dots .dot');
@@ -64,6 +63,31 @@ class HeroSlider {
                     targetSection.scrollIntoView({ behavior: 'smooth' });
                 }
             });
+        });
+
+        // Initialize ticking for scroll optimization
+        this.ticking = false;
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            if (!this.ticking) {
+                window.requestAnimationFrame(() => {
+                    this.handleParallax();
+                    this.ticking = false;
+                });
+                this.ticking = true;
+            }
+        });
+    }
+
+    handleParallax() {
+        const scrolled = window.scrollY;
+        // Optimization: stop if scrolled past viewport
+        if (scrolled > window.innerHeight) return;
+
+        this.backgrounds.forEach(bg => {
+            // Parallax: move background down slower than scroll (0.5x) and zoom slightly
+            bg.style.transform = `translateY(${scrolled * 0.5}px) scale(${1 + scrolled * 0.0005})`;
         });
     }
 

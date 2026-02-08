@@ -517,6 +517,78 @@ class BackToTop {
 }
 
 // ============================================
+// PARALLAX HERO
+// ============================================
+
+class ParallaxHero {
+    constructor() {
+        this.hero = document.querySelector('.static-hero');
+        this.layers = document.querySelectorAll('.parallax-layer');
+        this.init();
+    }
+
+    init() {
+        if (!this.hero || this.layers.length === 0) return;
+
+        window.addEventListener('scroll', () => {
+            requestAnimationFrame(() => this.handleScroll());
+        });
+
+        // Add mouse move listener
+        document.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => this.handleMouseMove(e));
+        });
+    }
+
+    handleScroll() {
+        // If hero is missing, stop
+        if (!this.hero) return;
+
+        const scrolled = window.scrollY;
+
+        // Stop animation if hero is out of view (slight buffer)
+        if (scrolled > this.hero.offsetHeight + 100) return;
+
+        this.layers.forEach(layer => {
+            // Default parallax speed
+            const speed = parseFloat(layer.getAttribute('data-speed')) || 0.5;
+            const yPos = scrolled * speed;
+
+            // Check if this is the content layer that needs mouse effect
+            if (layer.classList.contains('static-hero-content')) {
+                // Get mouse offsets
+                const mouseX = parseFloat(layer.dataset.mouseX) || 0;
+                const mouseY = parseFloat(layer.dataset.mouseY) || 0;
+
+                // Combine Scroll Y + Mouse Y + Mouse X
+                layer.style.transform = `translate3d(${mouseX}px, ${yPos + mouseY}px, 0)`;
+            } else {
+                // Standard layer
+                layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
+            }
+        });
+    }
+
+    handleMouseMove(e) {
+        // Target the content wrapper, NOT the title directly (since title has CSS animation)
+        const contentLayer = this.layers.find(l => l.classList.contains('static-hero-content'));
+        if (!contentLayer) return;
+
+        // Calculate mouse position relative to center
+        // Larger divisor = more subtle movement
+        const x = (window.innerWidth / 2 - e.clientX) / 40;
+        const y = (window.innerHeight / 2 - e.clientY) / 40;
+
+        // Store in dataset for the scroll loop to pick up
+        contentLayer.dataset.mouseX = x;
+        contentLayer.dataset.mouseY = y;
+
+        // Trigger an update immediately so it feels responsive even without scrolling
+        requestAnimationFrame(() => this.handleScroll());
+    }
+}
+
+// ============================================
 // INITIALIZE APP
 // ============================================
 
@@ -531,6 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new Newsletter();
     new DatePicker();
     new CardInteractions();
+    new ParallaxHero();
 
     // Add custom styles for suggestions
     addSuggestionStyles();

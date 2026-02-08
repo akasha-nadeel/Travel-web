@@ -24,7 +24,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/hero-slider.css">
+
     <link rel="stylesheet" href="css/pages.css">
     <link rel="stylesheet" href="css/enhancements.css">
     <link rel="stylesheet" href="css/auth.css">
@@ -97,265 +97,70 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Slider -->
-    <section class="hero hero-slider">
-        <!-- Background Images (will change with slider) -->
-        <div class="hero-backgrounds">
-            <div class="hero-bg active"
-                style="background-image: url('assets/images/destinations/sigiriya-hero-bg.png');"></div>
-            <div class="hero-bg" style="background-image: url('assets/images/destinations/ella.jpg');"></div>
-            <div class="hero-bg" style="background-image: url('assets/images/destinations/galle-fort-hero-bg.png');">
-            </div>
-            <div class="hero-bg" style="background-image: url('assets/images/destinations/kandy-hero-bg.jpg');"></div>
-            <div class="hero-bg" style="background-image: url('assets/images/destinations/mirissa.jpg');"></div>
-            <div class="hero-bg" style="background-image: url('assets/images/destinations/yala-elephants.jpg');"></div>
-        </div>
-        <div class="hero-overlay-gradient"></div>
-
-        <!-- Main Content Container -->
-        <div class="hero-slider-container">
-            <!-- Left Side: Title & Description -->
-            <div class="hero-slider-left">
-                <div class="hero-slide-content active" data-slide="0">
-                    <h1 class="hero-slider-title">SIGIRIYA</h1>
-                    <p class="hero-slider-description">
-                        Ancient rock fortress rising 200m above the jungle. Marvel at 5th-century frescoes and
-                        breathtaking summit views.
-                    </p>
-                    <button class="btn-hero-explore">
-                        Explore
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="hero-slide-content" data-slide="1">
-                    <h1 class="hero-slider-title">ELLA</h1>
-                    <p class="hero-slider-description">
-                        Misty mountains, lush tea plantations, and cascading waterfalls. Experience the world-famous
-                        scenic train journey.
-                    </p>
-                    <button class="btn-hero-explore">
-                        Explore
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="hero-slide-content" data-slide="2">
-                    <h1 class="hero-slider-title">GALLE FORT</h1>
-                    <p class="hero-slider-description">
-                        A living colonial fortress by the sea. Wander cobblestone streets and watch stunning sunsets
-                        from the ramparts.
-                    </p>
-                    <button class="btn-hero-explore">
-                        Explore
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="hero-slide-content" data-slide="3">
-                    <h1 class="hero-slider-title">KANDY</h1>
-                    <p class="hero-slider-description">
-                        The cultural heart of Sri Lanka. Home to the sacred Temple of the Tooth Relic and vibrant
-                        cultural festivals.
-                    </p>
-                    <button class="btn-hero-explore">
-                        Explore
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="hero-slide-content" data-slide="4">
-                    <h1 class="hero-slider-title">MIRISSA</h1>
-                    <p class="hero-slider-description">
-                        Paradise beach with golden sands and turquoise waters. Famous for whale watching, surfing, and
-                        stunning sunsets.
-                    </p>
-                    <button class="btn-hero-explore">
-                        Explore
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="hero-slide-content" data-slide="5">
-                    <h1 class="hero-slider-title">YALA</h1>
-                    <p class="hero-slider-description">
-                        Explore the wild heart of Sri Lanka. Home to leopards, elephants, and sloth bears in their
-                        natural habitat.
-                    </p>
-                    <button class="btn-hero-explore">
-                        Explore
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                </div>
+    <!-- New Initial Hero Section -->
+    <section class="static-hero">
+        <div class="hero-sticky-wrapper">
+            <div class="static-hero-bg parallax-layer" data-speed="0.1">
+                <img src="assets/images/home/parallax-new-bg.png" alt="Sri Lanka Landscape"
+                    style="object-fit: cover; width: 100%; height: 100%;">
             </div>
 
-            <!-- Right Side: Destination Cards Slider -->
-            <div class="hero-slider-right">
-                <div class="hero-cards-container">
-                    <div class="hero-card active" data-index="0">
-                        <div class="hero-card-image">
-                            <img src="assets/images/destinations/sigiriya-frescoes.jpg" alt="Sigiriya">
-                            <button class="hero-card-button" aria-label="Add to wishlist">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path
-                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="hero-card-info">
-                            <h3>Sigiriya</h3>
-                            <div class="hero-card-rating">
-                                <span>★★★★★</span>
-                            </div>
-                        </div>
-                    </div>
+            <!-- SVG Cloud Filters -->
+            <svg width="0" height="0" style="position: absolute;">
+                <filter id="filter-back">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="0" />
+                    <feDisplacementMap in="SourceGraphic" scale="170" />
+                </filter>
+                <filter id="filter-mid">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="0" />
+                    <feDisplacementMap in="SourceGraphic" scale="150" />
+                </filter>
+                <filter id="filter-front">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="0" />
+                    <feDisplacementMap in="SourceGraphic" scale="100" />
+                </filter>
+            </svg>
 
-                    <div class="hero-card" data-index="1">
-                        <div class="hero-card-image">
-                            <img src="assets/images/destinations/ella.jpg" alt="Ella">
-                            <button class="hero-card-button" aria-label="Add to wishlist">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path
-                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="hero-card-info">
-                            <h3>Ella</h3>
-                            <div class="hero-card-rating">
-                                <span>★★★★★</span>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Floating Clouds -->
+            <div class="cloud" id="cloud-back-1"></div>
+            <div class="cloud" id="cloud-back-2"></div>
+            <div class="cloud" id="cloud-mid-1"></div>
+            <div class="cloud" id="cloud-mid-2"></div>
+            <div class="cloud" id="cloud-front-1"></div>
+            <div class="cloud" id="cloud-front-2"></div>
+            <!-- Extra Top Clouds -->
+            <div class="cloud" id="cloud-top-1"></div>
+            <div class="cloud" id="cloud-top-2"></div>
+            <div class="cloud" id="cloud-top-3"></div>
+            <!-- More Floating Top Clouds (Near Nav) -->
+            <div class="cloud" id="cloud-top-extra-1"></div>
+            <div class="cloud" id="cloud-top-extra-2"></div>
+            <div class="cloud" id="cloud-top-extra-3"></div>
+            <div class="cloud" id="cloud-top-extra-4"></div>
+            <div class="cloud" id="cloud-top-extra-5"></div>
 
-                    <div class="hero-card" data-index="2">
-                        <div class="hero-card-image">
-                            <img src="assets/images/destinations/galle_fort.png" alt="Galle Fort">
-                            <button class="hero-card-button" aria-label="Add to wishlist">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path
-                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="hero-card-info">
-                            <h3>Galle Fort</h3>
-                            <div class="hero-card-rating">
-                                <span>★★★★★</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hero-card" data-index="3">
-                        <div class="hero-card-image">
-                            <img src="assets/images/destinations/kandy-new.jpg" alt="Kandy">
-                            <button class="hero-card-button" aria-label="Add to wishlist">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path
-                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="hero-card-info">
-                            <h3>Kandy</h3>
-                            <div class="hero-card-rating">
-                                <span>★★★★★</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hero-card" data-index="4">
-                        <div class="hero-card-image">
-                            <img src="assets/images/destinations/mirissa.jpg" alt="Mirissa">
-                            <button class="hero-card-button" aria-label="Add to wishlist">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path
-                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="hero-card-info">
-                            <h3>Mirissa</h3>
-                            <div class="hero-card-rating">
-                                <span>★★★★★</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hero-card" data-index="5">
-                        <div class="hero-card-image">
-                            <img src="assets/images/destinations/yala-elephants.jpg" alt="Yala">
-                            <button class="hero-card-button" aria-label="Add to wishlist">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path
-                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="hero-card-info">
-                            <h3>Yala</h3>
-                            <div class="hero-card-rating">
-                                <span>★★★★★</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Navigation Arrows -->
-                <button class="hero-slider-nav prev" aria-label="Previous">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </button>
-                <button class="hero-slider-nav next" aria-label="Next">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </button>
+            <div class="static-hero-content parallax-layer" data-speed="0.5">
+                <h1 class="static-hero-title">SRI LANKA.</h1>
             </div>
+
+
+            <div class="static-hero-sigiriya parallax-layer" data-speed="0.2">
+                <img src="assets/images/home/parallax-sigiriya.png" alt="Sigiriya Rock Fortress">
+            </div>
+
         </div>
 
-        <!-- Slider Dots Navigation -->
-        <div class="hero-slider-dots">
-            <button class="dot active" data-slide="0"></button>
-            <button class="dot" data-slide="1"></button>
-            <button class="dot" data-slide="2"></button>
-            <button class="dot" data-slide="3"></button>
-            <button class="dot" data-slide="4"></button>
+        <div class="scroll-indicator">
+            <span>Scroll to Explore</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
         </div>
     </section>
+
+    <!-- Hero Section with Slider (Moved Down) -->
+
 
     <!-- Why Choose Sri Lanka Section -->
     <section class="adventures-section">
@@ -1276,7 +1081,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="js/hero-slider.js"></script>
+
     <script src="js/feature-slider.js"></script>
     <script src="js/app.js"></script>
     <script src="js/auth.js"></script>

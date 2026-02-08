@@ -54,6 +54,8 @@ class HeroSlider {
         // this.startAutoPlay();
 
         // Explore button functionality - Smooth scroll to content
+        // Removed to allow direct linking to destination details pages
+        /*
         const exploreBtns = document.querySelectorAll('.btn-hero-explore');
         exploreBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -64,32 +66,33 @@ class HeroSlider {
                 }
             });
         });
+        */
 
         // Initialize ticking for scroll optimization
         this.ticking = false;
 
-        // Parallax Effect
-        window.addEventListener('scroll', () => {
-            if (!this.ticking) {
-                window.requestAnimationFrame(() => {
-                    this.handleParallax();
-                    this.ticking = false;
-                });
-                this.ticking = true;
-            }
-        });
+        // Parallax Effect Removed by User Request
+        // window.addEventListener('scroll', () => {
+        //     if (!this.ticking) {
+        //         window.requestAnimationFrame(() => {
+        //             this.handleParallax();
+        //             this.ticking = false;
+        //         });
+        //         this.ticking = true;
+        //     }
+        // });
     }
 
-    handleParallax() {
-        const scrolled = window.scrollY;
-        // Optimization: stop if scrolled past viewport
-        if (scrolled > window.innerHeight) return;
-
-        this.backgrounds.forEach(bg => {
-            // Parallax: move background down slower than scroll (0.5x) and zoom slightly
-            bg.style.transform = `translateY(${scrolled * 0.5}px) scale(${1 + scrolled * 0.0005})`;
-        });
-    }
+    // handleParallax() {
+    //     const scrolled = window.scrollY;
+    //     // Optimization: stop if scrolled past viewport
+    //     if (scrolled > window.innerHeight) return;
+    //
+    //     this.backgrounds.forEach(bg => {
+    //         // Parallax: move background down slower than scroll (0.5x) and zoom slightly
+    //         bg.style.transform = `translateY(${scrolled * 0.5}px) scale(${1 + scrolled * 0.0005})`;
+    //     });
+    // }
 
     goToSlide(index) {
         if (this.isAnimating || index === this.currentSlide) return;
